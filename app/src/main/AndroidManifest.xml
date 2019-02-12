@@ -15,9 +15,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SelectionActivity"></activity>
-        <activity android:name=".ViewTicketActivity" />
+        <activity android:name=".ViewTicketActivity"
+            android:label="View Ticket"/>
         <activity android:name=".BookActivity"
-            android:noHistory="true"/>
+            android:noHistory="true"
+            android:label="Book Ticket"/>
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
@@ -29,9 +31,11 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:noHistory="true" />
+            android:noHistory="true"
+            android:label="Login"/>
         <activity android:name=".MainActivity"
-            android:noHistory="true"/>
+            android:noHistory="true"
+            android:label="Book Ticket"/>
         <activity
             android:name="com.paytm.pgsdk.PaytmPGActivity"
             android:configChanges="keyboardHidden|orientation|keyboard"
