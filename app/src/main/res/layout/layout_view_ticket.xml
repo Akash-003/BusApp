@@ -24,7 +24,7 @@
                 android:layout_height="150dp"
                 android:layout_centerHorizontal="true"
                 android:padding="10dp"
-                android:src="@drawable/download" />
+                android:src="@drawable/ticket" />
 
             <TextView
                 android:id="@+id/heading"
