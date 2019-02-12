@@ -35,6 +35,10 @@ public class PassengerAdapter extends RecyclerView.Adapter<PassengerAdapter.Pass
         //binding the data with the viewholder views
         holder.idTextView.setText(passenger.getId());
         holder.nameTextView.setText(passenger.getName());
+        holder.busId.setText(passenger.getBusId());
+        holder.departureTime.setText(passenger.getDepartureTime());
+        holder.seatNo.setText(passenger.getSeatNo());
+        holder.txnDate.setText(passenger.getTxnDate());
 
     }
 
@@ -45,12 +49,16 @@ public class PassengerAdapter extends RecyclerView.Adapter<PassengerAdapter.Pass
 
     class PassengerViewHolder extends RecyclerView.ViewHolder {
 
-        TextView idTextView, nameTextView;
+        TextView idTextView, nameTextView, departureTime, seatNo, busId, txnDate;
 
         public PassengerViewHolder(View itemView) {
             super(itemView);
             idTextView = itemView.findViewById(R.id.idTextView);
             nameTextView = itemView.findViewById(R.id.nameView);
+            departureTime = itemView.findViewById(R.id.timeView);
+            seatNo = itemView.findViewById(R.id.seatView);
+            busId = itemView.findViewById(R.id.busIdView);
+            txnDate = itemView.findViewById(R.id.txnDate);
         }
 
     }
