@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "824286930143",
+    "firebase_url": "https://busfirebaseproject-8fd6f.firebaseio.com",
+    "project_id": "busfirebaseproject-8fd6f",
+    "storage_bucket": "busfirebaseproject-8fd6f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:824286930143:android:e8b8589066b9132a",
+        "android_client_info": {
+          "package_name": "com.iitbhilai.bus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "824286930143-sh6pnr649ndojs22ngn0n3roo3i48kep.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.iitbhilai.bus",
+            "certificate_hash": "12bb8589621f5499270fb67d79b6c40a483d84c7"
+          }
+        },
+        {
+          "client_id": "824286930143-j2ul7qlogg4ps06797mrgr8m347g4h7s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMjDAyKz6WcCa8g_Lr_BhSM2EKIzo_46A"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "824286930143-j2ul7qlogg4ps06797mrgr8m347g4h7s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
