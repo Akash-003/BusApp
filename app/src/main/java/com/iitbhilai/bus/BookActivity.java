@@ -121,7 +121,7 @@ public class BookActivity extends AppCompatActivity {
         String pass_name = nameEditText.getText().toString().trim();
         String pass_id = idEditText.getText().toString().trim();
 
-        if(!TextUtils.isEmpty(pass_name) && !TextUtils.isEmpty(pass_id) ){
+        if(!TextUtils.isEmpty(pass_name) && !TextUtils.isEmpty(pass_id) && pass_id.length()==8 && pass_id.charAt(0)==1 && pass_id.charAt(1)==1){
 //            String key = databasePassengers.push().getKey();
 
             passenger = new Passenger(pass_id,pass_name);
@@ -193,7 +193,7 @@ public class BookActivity extends AppCompatActivity {
         }
 
         else {
-            Toast.makeText(this,"Please provide the required Details",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Please provide Valid Details",Toast.LENGTH_SHORT).show();
         }
     }
 

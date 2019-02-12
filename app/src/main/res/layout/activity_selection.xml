@@ -6,23 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".SelectionActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:elevation="25mm"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="50dp"/>
+
     <Button
         android:layout_centerVertical="true"
         android:id="@+id/btn1"
         android:textSize="20sp"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_margin="20dp"
+        android:layout_height="80dp"
+        android:layout_margin="30dp"
         android:textColor="@color/text"
         android:background="@color/colorAccent"
         android:text="Book Ticket"/>
+
     <Button
         android:id="@+id/btn2"
         android:layout_width="match_parent"
         android:background="@color/colorAccent"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:textColor="@color/text"
-        android:layout_margin="20dp"
+        android:layout_margin="30dp"
         android:textSize="20sp"
         android:layout_below="@+id/btn1"
         android:text="View Ticket"/>
