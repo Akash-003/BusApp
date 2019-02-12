@@ -44,11 +44,19 @@
                 android:layout_margin="10dp">
 
                 <TextView
+                    android:id="@+id/busId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BusId :"
+                    android:textSize="16sp" />
+
+                <TextView
                     android:id="@+id/nameHead"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_below="@+id/busId"
                     android:text="Name :"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/idHead"
@@ -56,7 +64,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/nameHead"
                     android:text="ID :"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
 
 
                 <TextView
@@ -65,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/idHead"
                     android:text="Departure Time :"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
 
 
                 <TextView
@@ -74,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/scheduleHead"
                     android:text="Seat No. :"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/amtHead"
@@ -82,7 +90,15 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/seatHead"
                     android:text="Amount :"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txnDateHead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/amtHead"
+                    android:text="TxnDate :"
+                    android:textSize="16sp" />
 
             </RelativeLayout>
 
@@ -94,11 +110,19 @@
                 android:layout_toEndOf="@id/heads">
 
                 <TextView
+                    android:id="@+id/busIdView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="134234"
+                    android:textSize="16sp" />
+
+                <TextView
                     android:id="@+id/nameView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_below="@+id/busIdView"
                     android:hint="Your Name"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/idTextView"
@@ -106,7 +130,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/nameView"
                     android:hint="Your ID"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/timeView"
@@ -114,7 +138,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/idTextView"
                     android:hint="Time"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/seatView"
@@ -122,7 +146,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/timeView"
                     android:hint="23"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/amtView"
@@ -130,7 +154,15 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/seatView"
                     android:hint="₹ 10"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txnDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/amtView"
+                    android:hint="12738"
+                    android:textSize="16sp" />
 
             </RelativeLayout>
         </RelativeLayout>

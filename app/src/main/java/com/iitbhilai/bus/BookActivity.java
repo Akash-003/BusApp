@@ -210,14 +210,6 @@ public class BookActivity extends AppCompatActivity {
 
     public void onStartTransaction() {
 
-//        mProgress = new ProgressDialog(getApplicationContext());
-//        mProgress.setTitle("Processing...");
-//        mProgress.setMessage("Please wait...");
-//        mProgress.setCancelable(false);
-//        mProgress.setIndeterminate(true);
-//        mProgress.show();
-
-
         PaytmPGService Service = PaytmPGService.getProductionService();
         Map<String, String> paramMap = new HashMap<String, String>();
 
@@ -266,9 +258,8 @@ public class BookActivity extends AppCompatActivity {
 
                                     seatAvailable = document.getData().get("seats_available").toString();
                                     String totalSeats = document.getData().get("total_seats").toString();
-                                    busID = document.getId().toString();
+                                    busID = document.getId();
                                     time = document.getData().get("time").toString();
-                                    UserEmailId = "pradeepk@iitbhilai.ac.in";
                                     UserId = passenger.getId();
                                     UserName = passenger.getName();
                                     TXNDATE = inResponse.get("TXNDATE").toString();
@@ -283,7 +274,7 @@ public class BookActivity extends AppCompatActivity {
                                     data.put("seatNumber", seatNumber);
                                     data.put("busID", busID);
                                     data.put("time", time);
-                                    data.put("userId", UserId);
+//                                    data.put("userId", UserId);
                                     data.put("UserName", UserName);
                                     data.put("TXNDATE", TXNDATE);
                                     data.put("TXNID", TXNID);
@@ -292,12 +283,13 @@ public class BookActivity extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(), data.toString(), Toast.LENGTH_LONG).show();
 //                                    Intent i = new Intent(BookActivity.this, ViewTicketActivity.class);
 //                                    startActivity(i);
-                                    Log.d(TAG, data.toString());
+//                                    Log.d(TAG, data.toString());
 //
+//                                    Toast.makeText(getApplicationContext(), FirebaseAuth.getInstance().getCurrentUser().getEmail(), Toast.LENGTH_LONG).show();
 ////                                     Get a new write batch
                                     WriteBatch batch = db.batch();
 //
-                                    DocumentReference usersRef = db.collection("Users").document(UserId);
+                                    DocumentReference usersRef = db.collection("Users/" + FirebaseAuth.getInstance().getCurrentUser().getEmail() + "/BookedTickets").document(UserId);
                                     batch.set(usersRef, data);
 
                                     DocumentReference busRef = db.collection("Buses").document(busID);
