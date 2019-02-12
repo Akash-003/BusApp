@@ -30,7 +30,8 @@
         <activity
             android:name=".LoginActivity"
             android:noHistory="true" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:noHistory="true"/>
         <activity
             android:name="com.paytm.pgsdk.PaytmPGActivity"
             android:configChanges="keyboardHidden|orientation|keyboard"
