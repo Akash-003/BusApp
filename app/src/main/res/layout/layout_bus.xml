@@ -9,48 +9,56 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_margin="5dp"
-        android:layout_marginTop="20dp"
-        android:padding="20dp"
-        app:contentPadding="20dp">
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        app:contentPadding="10dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
+                android:id="@+id/textViewBusId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="3dp"
+                android:text="Bus Id: " />
+
+            <TextView
                 android:id="@+id/textViewTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:text="Schedule" />
+                android:layout_below="@id/textViewBusId"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="3dp"
+                android:text="Dep. Time" />
 
             <TextView
-                android:id="@+id/ss"
+                android:id="@+id/textViewSeatsAvail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/textViewTime"
-                android:layout_margin="5dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginStart="5dp"
                 android:text="Seats Available : " />
-
-            <TextView
-                android:id="@+id/textViewSeats"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/textViewTime"
-                android:layout_toRightOf="@id/ss"
-                android:layout_margin="5dp" />
 
             <Button
                 android:id="@+id/bookButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Book Now"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:padding="10dp"
                 android:layout_margin="5dp"
-                android:textColor="@color/text"
-                android:background="@color/colorAccent"/>
+                android:background="@color/colorAccent"
+                android:padding="10dp"
+                android:text="Book Now"
+                android:textColor="@color/text" />
 
         </RelativeLayout>
 

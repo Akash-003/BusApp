@@ -36,19 +36,26 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.BusViewHolder> {
         final BusDetail bus = busList.get(position);
 
         //binding the data with the viewholder views
-        holder.textViewTime.setText(bus.getTime());
-        holder.textViewSeats.setText((String.valueOf(bus.getSeats())));
+        holder.textViewTime.setText("Dep. Time: " + bus.getTime());
+        holder.textViewSeats.setText("Seats Avail. : " +  (String.valueOf(bus.getSeats())));
+        holder.textViewBusId.setText("Bus Id: " + bus.getBusName());
 
         holder.bookButton.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
                 Toast.makeText(mCtx, "Ok", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(mCtx, BookActivity.class);
-                intent.putExtra("BUS_ID", bus.getBusName());
-                intent.putExtra("BUS_TIME", bus.getTime());
-                intent.putExtra("BUS_SEATS_AVAIL", bus.getSeats());
-                mCtx.startActivity(intent);
+
+                if(bus.getSeats() == 0){
+                    Toast.makeText(mCtx, "No Seats available", Toast.LENGTH_LONG).show();
+                }else{
+                    Intent intent = new Intent(mCtx, BookActivity.class);
+                    intent.putExtra("BUS_ID", bus.getBusName());
+                    intent.putExtra("BUS_TIME", bus.getTime());
+                    intent.putExtra("BUS_SEATS_AVAIL", bus.getSeats());
+                    mCtx.startActivity(intent);
+                }
+
             }
         });
     }
@@ -63,14 +70,15 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.BusViewHolder> {
 
     class BusViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textViewTime, textViewSeats;
+        TextView textViewTime, textViewSeats, textViewBusId;
         Button bookButton;
 
         public BusViewHolder(View itemView) {
             super(itemView);
             bookButton = itemView.findViewById(R.id.bookButton);
             textViewTime = itemView.findViewById(R.id.textViewTime);
-            textViewSeats = itemView.findViewById(R.id.textViewSeats);
+            textViewSeats = itemView.findViewById(R.id.textViewSeatsAvail);
+            textViewBusId = itemView.findViewById(R.id.textViewBusId);
         }
 
     }

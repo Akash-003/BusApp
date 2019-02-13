@@ -66,6 +66,9 @@ public class MainActivity extends AppCompatActivity {
                     busList = new ArrayList<>();
                     for (DocumentSnapshot document : task.getResult()) {
                         Log.d(TAG, document.getId() + " => " + document.getData());
+//                        if(document.get("seats_available").toString() == "0"){
+//
+//                        }
                         busList.add(new BusDetail(document.getId(), document.getData().get("time").toString(), Integer.parseInt(document.getData().get("seats_available").toString())));
                     }
                     BusAdapter adapter = new BusAdapter(getBaseContext(), busList);

@@ -31,20 +31,10 @@ public class ViewTicketActivity extends AppCompatActivity {
     RecyclerView recyclerView2;
     FirebaseFirestore db;
     private ProgressDialog mProgress;
+    private static final String TAG  ="ViewTicketActivity";
 
 
 
-    String seatAvailable;
-    String busID;
-    String time;
-    String UserEmailId;
-    String UserId;
-    String UserName;
-    String TXNDATE;
-    String TXNID;
-    String BANKTXNID;
-    String ORDERID;
-    String seatNumber;
 
 
     @Override
@@ -74,9 +64,10 @@ public class ViewTicketActivity extends AppCompatActivity {
                 if(task.isSuccessful()){
                     passengerList = new ArrayList<>();
                     for (DocumentSnapshot documentSnapshot : task.getResult()){
-                        passengerList.add(new Passenger(documentSnapshot.getId().toString(), documentSnapshot.get("UserName").toString(), documentSnapshot.get("time").toString(), documentSnapshot.get("seatNumber").toString(), documentSnapshot.get("TXNDATE").toString(), documentSnapshot.get("busID").toString()));
+                        Log.d(TAG, documentSnapshot.toString());
+                        passengerList.add(new Passenger(documentSnapshot.getId().toString(), documentSnapshot.getData().get("user_name").toString(), documentSnapshot.getData().get("dep_time").toString(), documentSnapshot.getData().get("seat_number").toString(), documentSnapshot.getData().get("book_time").toString(), documentSnapshot.getData().get("bus_id").toString()));
                     }
-
+//
                     PassengerAdapter adapter = new PassengerAdapter(getApplicationContext(),passengerList);
                     recyclerView2.setAdapter(adapter);
 
@@ -85,6 +76,7 @@ public class ViewTicketActivity extends AppCompatActivity {
                     }
 
                 }else{
+                    Toast.makeText(getApplicationContext(), "Some thing went wrong", Toast.LENGTH_LONG).show();
 
                 }
             }
