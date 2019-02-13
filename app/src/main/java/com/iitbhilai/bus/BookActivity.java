@@ -105,15 +105,15 @@ public class BookActivity extends AppCompatActivity {
     }
 
     private void addToDatabase( final String busID, final String Name, final String userid, final String depTime ) {
-        final String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+        final String timeStamp = new SimpleDateFormat("yyyy/MM/dd : HH:mm:ss").format(Calendar.getInstance().getTime());
 
         //show progress dialog
-        mProgress = new ProgressDialog(this);
-        mProgress.setTitle("Processing...");
-        mProgress.setMessage("Please wait...");
-        mProgress.setCancelable(false);
-        mProgress.setIndeterminate(true);
-        mProgress.show();
+//        mProgress = new ProgressDialog(this);
+//        mProgress.setTitle("Processing...");
+//        mProgress.setMessage("Please wait...");
+//        mProgress.setCancelable(false);
+//        mProgress.setIndeterminate(true);
+//        mProgress.show();
 
 
         final DocumentReference documentReference = db.collection("Buses").document(getIntent().getStringExtra("BUS_ID"));
@@ -146,15 +146,18 @@ public class BookActivity extends AppCompatActivity {
                         @Override
                         public void onComplete( @NonNull Task<Void> task ) {
                             if(task.isSuccessful()){
-                                if(mProgress.isShowing() && mProgress != null){
-                                    mProgress.dismiss();
-                                }
+                                Toast.makeText(getApplicationContext(), " success", Toast.LENGTH_SHORT).show();
+//                                if(mProgress.isShowing() && mProgress != null){
+//                                    mProgress.dismiss();
+//                                }
+                                Intent i = new Intent(BookActivity.this, ViewTicketActivity.class);
+                                startActivity(i);
                                 //initiate transaction
-                                startPaymentTransaction();
+//                                startPaymentTransaction();
                             }else{
-                                if(mProgress.isShowing() && mProgress != null){
-                                    mProgress.dismiss();
-                                }
+//                                if(mProgress.isShowing() && mProgress != null){
+//                                    mProgress.dismiss();
+//                                }
                                 Log.d(TAG, "Error getting documents: ", task.getException());
 
                                 Toast.makeText(getApplicationContext(), "some this went wrong!! try again" + task.getException(), Toast.LENGTH_LONG).show();
@@ -162,9 +165,9 @@ public class BookActivity extends AppCompatActivity {
                         }
                     });
                 }else{
-                    if(mProgress.isShowing() && mProgress != null){
-                        mProgress.dismiss();
-                    }
+//                    if(mProgress.isShowing() && mProgress != null){
+//                        mProgress.dismiss();
+//                    }
                     Toast.makeText(getApplicationContext(), "Error getting documents", Toast.LENGTH_SHORT).show();
                     Log.d(TAG, "Error getting documents: ", task.getException());
 
@@ -185,7 +188,7 @@ public class BookActivity extends AppCompatActivity {
         String pass_id = idEditText.getText().toString().trim();
 
         if(!TextUtils.isEmpty(pass_name) && !TextUtils.isEmpty(pass_id) && pass_id.length()==8 && pass_id.charAt(0)=='1' && pass_id.charAt(1)=='1'){
-            addToDatabase(getIntent().getStringExtra("BUS_ID"), nameEditText.getText().toString(), idEditText.getText().toString(), getIntent().getStringExtra("BUS_TIME"));
+            startPaymentTransaction();
         }
 
         else {
@@ -237,7 +240,7 @@ public class BookActivity extends AppCompatActivity {
                     if(mProgress != null && mProgress.isShowing()){
                         mProgress.dismiss();
                     }
-                    Toast.makeText(getApplicationContext(), checkSum, Toast.LENGTH_LONG).show();
+//                    Toast.makeText(getApplicationContext(), checkSum, Toast.LENGTH_LONG).show();
                     onStartTransaction();
                 }
 //                            Toast.makeText(getApplicationContext(), String.valueOf(response), Toast.LENGTH_LONG).show();
@@ -245,9 +248,12 @@ public class BookActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse( VolleyError error ) {
+
                 if(mProgress != null && mProgress.isShowing()){
                     mProgress.dismiss();
                 }
+                deleteFromDatebase(getIntent().getStringExtra("BUS_ID"), idEditText.getText().toString(), seatAvailable);
+
                 Toast.makeText(getApplicationContext(), "some error has occurred", Toast.LENGTH_LONG).show();
                 error.printStackTrace();
             }
@@ -296,7 +302,7 @@ public class BookActivity extends AppCompatActivity {
                     @Override
                     public void someUIErrorOccurred(String inErrorMessage) {
                         Toast.makeText(getApplicationContext(), "some ui error occured ", Toast.LENGTH_LONG).show();
-                        deleteFromDatebase(getIntent().getStringExtra("BUS_ID"), idEditText.getText().toString(), seatAvailable);
+//                        deleteFromDatebase(getIntent().getStringExtra("BUS_ID"), idEditText.getText().toString(), seatAvailable);
                         // Some UI Error Occurred in Payment Gateway Activity.
                         // // This may be due to initialization of views in
                         // Payment Gateway Activity or may be due to //
@@ -308,15 +314,15 @@ public class BookActivity extends AppCompatActivity {
                     @Override
                     public void onTransactionResponse( final Bundle inResponse) {
                         Log.d("LOG", "Payment Transaction is successful " + inResponse);
-                        Intent i = new Intent(BookActivity.this, ViewTicketActivity.class);
-                        startActivity(i);
+                        addToDatabase(getIntent().getStringExtra("BUS_ID"), nameEditText.getText().toString(), idEditText.getText().toString(), getIntent().getStringExtra("BUS_TIME"));
+
                     }
 
                     @Override
                     public void networkNotAvailable() { // If network is not
                         // available, then this
                         //                        deleteFromDatebase();
-                        deleteFromDatebase(getIntent().getStringExtra("BUS_ID"), idEditText.getText().toString(), seatAvailable);
+//                        deleteFromDatebase(getIntent().getStringExtra("BUS_ID"), idEditText.getText().toString(), seatAvailable);
 
 
                         Toast.makeText(getApplicationContext(), "network not available", Toast.LENGTH_LONG).show();
@@ -326,7 +332,7 @@ public class BookActivity extends AppCompatActivity {
                     @Override
                     public void clientAuthenticationFailed(String inErrorMessage) {
                         //                        deleteFromDatebase();
-                        deleteFromDatebase(getIntent().getStringExtra("BUS_ID"), idEditText.getText().toString(), seatAvailable);
+//                        deleteFromDatebase(getIntent().getStringExtra("BUS_ID"), idEditText.getText().toString(), seatAvailable);
 
 
                         Toast.makeText(getApplicationContext(), "client authentication failed", Toast.LENGTH_LONG).show();
@@ -354,7 +360,7 @@ public class BookActivity extends AppCompatActivity {
                     @Override
                     public void onBackPressedCancelTransaction() {
                         //                        deleteFromDatebase();
-                        deleteFromDatebase(getIntent().getStringExtra("BUS_ID"), idEditText.getText().toString(), seatAvailable);
+//                        deleteFromDatebase(getIntent().getStringExtra("BUS_ID"), idEditText.getText().toString(), seatAvailable);
 
 
                         Toast.makeText(BookActivity.this,"Back pressed. Transaction cancelled",Toast.LENGTH_LONG).show();
@@ -362,7 +368,7 @@ public class BookActivity extends AppCompatActivity {
 
                     @Override
                     public void onTransactionCancel(String inErrorMessage, Bundle inResponse) {
-                        deleteFromDatebase(getIntent().getStringExtra("BUS_ID"), idEditText.getText().toString(), seatAvailable);
+//                        deleteFromDatebase(getIntent().getStringExtra("BUS_ID"), idEditText.getText().toString(), seatAvailable);
 
                         //                        deleteFromDatebase();
 
@@ -396,6 +402,8 @@ public class BookActivity extends AppCompatActivity {
                     if (mProgress.isShowing() && mProgress != null){
                         mProgress.dismiss();
                     }
+                    Intent i = new Intent(BookActivity.this, MainActivity.class);
+                    startActivity(i);
                     Toast.makeText(getApplicationContext(), "Booking error!! Try to book again", Toast.LENGTH_LONG).show();
                 }else{
                     if (mProgress.isShowing() && mProgress != null){

@@ -18,7 +18,7 @@
                 android:textAlignment="center"
                 android:id="@+id/head"
                 android:textColor="@color/colorPrimaryText"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:layout_alignParentTop="true"
                 android:layout_marginBottom="30dp"
                 android:layout_marginTop="50dp"
@@ -33,6 +33,7 @@
                 android:layout_margin="10dp"
                 android:layout_marginTop="20dp"
                 android:layout_below="@id/head"
+                android:textSize="18sp"
                 android:padding="10dp"
                 android:text="BusID :"/>
 
@@ -42,6 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:textSize="20sp"
                 android:layout_toRightOf="@id/busidView"
                 android:layout_marginTop="20dp"
                 android:layout_below="@id/head"
@@ -55,6 +57,7 @@
                 android:layout_marginTop="20dp"
                 android:padding="10dp"
                 android:inputType="text"
+                android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Enter Name"/>

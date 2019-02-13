@@ -8,7 +8,7 @@
 
     <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:fillViewport="true">
 
         <RelativeLayout
@@ -22,7 +22,10 @@
                 android:layout_height="200dp"
                 android:src="@drawable/logov2"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="50dp"/>
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="40dp"/>
 
             <Button
                 android:layout_centerVertical="true"
@@ -32,6 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_margin="30dp"
+                android:layout_marginTop="25dp"
                 android:textColor="@color/text"
                 android:background="@color/colorAccent"
                 android:text="Book Ticket"/>
