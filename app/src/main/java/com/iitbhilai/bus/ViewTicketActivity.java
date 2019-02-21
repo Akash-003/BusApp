@@ -34,9 +34,6 @@ public class ViewTicketActivity extends AppCompatActivity {
     private static final String TAG  ="ViewTicketActivity";
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,8 +73,7 @@ public class ViewTicketActivity extends AppCompatActivity {
                     }
 
                 }else{
-                    Toast.makeText(getApplicationContext(), "Some thing went wrong", Toast.LENGTH_LONG).show();
-
+                    Toast.makeText(getApplicationContext(), "Some thing went wrong!", Toast.LENGTH_LONG).show();
                 }
             }
         });

@@ -19,7 +19,6 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.BusViewHolder> {
     public BusAdapter(Context mCtx, List<BusDetail> busList) {
         this.mCtx = mCtx;
         this.busList = busList;
-//        listener =  mCtx;
     }
 
     @Override
@@ -44,7 +43,7 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.BusViewHolder> {
 
             @Override
             public void onClick(View v) {
-                Toast.makeText(mCtx, "Ok", Toast.LENGTH_LONG).show();
+//                Toast.makeText(mCtx, "Ok", Toast.LENGTH_LONG).show();
 
                 if(bus.getSeats() == 0){
                     Toast.makeText(mCtx, "No Seats available", Toast.LENGTH_LONG).show();
