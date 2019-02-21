@@ -105,9 +105,9 @@ public class BookActivity extends AppCompatActivity {
     }
 
     private void addToDatabase( final String busID, final String Name, final String userid, final String depTime ) {
-        final String timeStamp = new SimpleDateFormat("yyyy/MM/dd : HH:mm:ss").format(Calendar.getInstance().getTime());
-
-        //show progress dialog
+        final String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+//
+//        //show progress dialog
 //        mProgress = new ProgressDialog(this);
 //        mProgress.setTitle("Processing...");
 //        mProgress.setMessage("Please wait...");
@@ -146,13 +146,12 @@ public class BookActivity extends AppCompatActivity {
                         @Override
                         public void onComplete( @NonNull Task<Void> task ) {
                             if(task.isSuccessful()){
-                                Toast.makeText(getApplicationContext(), " success", Toast.LENGTH_SHORT).show();
+                                Intent i = new Intent(BookActivity.this, ViewTicketActivity.class);
+                                startActivity(i);
 //                                if(mProgress.isShowing() && mProgress != null){
 //                                    mProgress.dismiss();
 //                                }
-                                Intent i = new Intent(BookActivity.this, ViewTicketActivity.class);
-                                startActivity(i);
-                                //initiate transaction
+//                                //initiate transaction
 //                                startPaymentTransaction();
                             }else{
 //                                if(mProgress.isShowing() && mProgress != null){
@@ -240,7 +239,7 @@ public class BookActivity extends AppCompatActivity {
                     if(mProgress != null && mProgress.isShowing()){
                         mProgress.dismiss();
                     }
-//                    Toast.makeText(getApplicationContext(), checkSum, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), checkSum, Toast.LENGTH_LONG).show();
                     onStartTransaction();
                 }
 //                            Toast.makeText(getApplicationContext(), String.valueOf(response), Toast.LENGTH_LONG).show();
@@ -248,12 +247,9 @@ public class BookActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse( VolleyError error ) {
-
                 if(mProgress != null && mProgress.isShowing()){
                     mProgress.dismiss();
                 }
-                deleteFromDatebase(getIntent().getStringExtra("BUS_ID"), idEditText.getText().toString(), seatAvailable);
-
                 Toast.makeText(getApplicationContext(), "some error has occurred", Toast.LENGTH_LONG).show();
                 error.printStackTrace();
             }
@@ -349,7 +345,7 @@ public class BookActivity extends AppCompatActivity {
                     public void onErrorLoadingWebPage(int iniErrorCode,
                                                       String inErrorMessage, String inFailingUrl) {
                         //                        deleteFromDatebase();
-                        deleteFromDatebase(getIntent().getStringExtra("BUS_ID"), idEditText.getText().toString(), seatAvailable);
+//                        deleteFromDatebase(getIntent().getStringExtra("BUS_ID"), idEditText.getText().toString(), seatAvailable);
 
 
                         Toast.makeText(getApplicationContext(), "error loading webpage", Toast.LENGTH_LONG).show();
@@ -402,8 +398,6 @@ public class BookActivity extends AppCompatActivity {
                     if (mProgress.isShowing() && mProgress != null){
                         mProgress.dismiss();
                     }
-                    Intent i = new Intent(BookActivity.this, MainActivity.class);
-                    startActivity(i);
                     Toast.makeText(getApplicationContext(), "Booking error!! Try to book again", Toast.LENGTH_LONG).show();
                 }else{
                     if (mProgress.isShowing() && mProgress != null){

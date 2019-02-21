@@ -23,6 +23,22 @@
           }
         },
         {
+          "client_id": "824286930143-4um5udcaksrv0ap8inde98qctn03fv2u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.iitbhilai.bus",
+            "certificate_hash": "3365322da9e344735ba4bfbea88cb6dcfabf194d"
+          }
+        },
+        {
+          "client_id": "824286930143-ladtukmocjb445ek33evroif05e5rths.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.iitbhilai.bus",
+            "certificate_hash": "6baae7016a43e6cf44a563a8b5cc19bc9fc6a38a"
+          }
+        },
+        {
           "client_id": "824286930143-j2ul7qlogg4ps06797mrgr8m347g4h7s.apps.googleusercontent.com",
           "client_type": 3
         }

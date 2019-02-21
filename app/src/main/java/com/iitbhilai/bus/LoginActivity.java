@@ -69,6 +69,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser()!=null){
+
                     Toast.makeText(getApplicationContext(), firebaseAuth.getCurrentUser().getEmail(), Toast.LENGTH_LONG).show();
                     startActivity(new Intent(LoginActivity.this,SelectionActivity.class));
                 }
@@ -99,6 +100,7 @@ public class LoginActivity extends AppCompatActivity {
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 Log.w("TAG", "Google sign in failed", e);
+                Toast.makeText(LoginActivity.this,"Google sign in failed",Toast.LENGTH_SHORT).show();
                 // ...
             }
         }
