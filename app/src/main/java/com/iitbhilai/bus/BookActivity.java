@@ -248,8 +248,14 @@ public class BookActivity extends AppCompatActivity {
                                     @Override
                                     public void onTransactionResponse( final Bundle inResponse) {
                                         Log.d("LOG", "Payment Transaction is successful " + inResponse);
-                                        Toast.makeText(getApplicationContext(), "Transaction successful generating ticket.", Toast.LENGTH_LONG).show();
-                                        addToDatabase(getIntent().getStringExtra("BUS_ID"), nameEditText.getText().toString(), idEditText.getText().toString(), getIntent().getStringExtra("BUS_TIME"));
+                                        if(inResponse.get("STATUS") == "SUCCESS"){
+                                            Toast.makeText(getApplicationContext(), "Transaction successful generating ticket.", Toast.LENGTH_LONG).show();
+                                            addToDatabase(getIntent().getStringExtra("BUS_ID"), nameEditText.getText().toString(), idEditText.getText().toString(), getIntent().getStringExtra("BUS_TIME"));
+
+                                        }else{
+                                            Toast.makeText(getApplicationContext(), "Transaction failure", Toast.LENGTH_LONG).show();
+
+                                        }
 
                                     }
 
