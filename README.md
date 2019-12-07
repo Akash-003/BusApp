@@ -5,8 +5,8 @@ The schedule and fares for various routes are configurable through firebase and 
 
 Screenshots:
 <p align="justify">
-  <img src="https://github.com/Akash-003/BusApp/blob/master/unnamed%20(3).png?raw=true" width="200" title="hover text">
-  <img src="https://github.com/Akash-003/BusApp/blob/master/unnamed%20(1).png?raw=true" width="200" title="hover text">
-  <img src="https://github.com/Akash-003/BusApp/blob/master/unnamed.png?raw=true" width="200" title="hover text">
-  <img src="https://github.com/Akash-003/BusApp/blob/master/unnamed%20(2).png?raw=true" width="200" title="hover text">
+  <img src="https://github.com/Akash-003/BusApp/blob/master/unnamed%20(3).png?raw=true" width="200" title="Login screen">
+  <img src="https://github.com/Akash-003/BusApp/blob/master/unnamed%20(1).png?raw=true" width="200" title="Home screen">
+  <img src="https://github.com/Akash-003/BusApp/blob/master/unnamed.png?raw=true" width="200" title="Book Ticket screen">
+  <img src="https://github.com/Akash-003/BusApp/blob/master/unnamed%20(2).png?raw=true" width="200" title="View Ticket screen">
 </p>
